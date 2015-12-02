@@ -1,0 +1,290 @@
+<html>
+<head>
+   <title>Work Journal Manual</title>
+</head>
+<body>
+
+<h2>Work Journal Manual</h2>
+
+<p><b>Thornton Rose (thornton_rose@yahoo.com)</b></p>
+
+<p>Copyright &copy; 2001, Thornton Rose</p>
+
+<hr>
+
+<!--========================================================================-->
+
+<p><b>Contents:</b></p>
+
+<ul>
+   <li><a href="#description">Description</a></li>
+   <li><a href="#installation">Installation</a></li>
+   <li><a href="#running">Running Work Journal</a></li>
+   <li><a href="#mainwindow">Work Journal Window</a></li>
+   <li><a href="#entrywindow">Journal Entry Window</a></li>
+   <li><a href="#journalreport">Journal Report</a></li>
+   <li><a href="#timereport">Time Report</a></li>
+   <li><a href="#files">Files</a></li>
+   <li><a href="#database">Database</a></li>
+</ul>
+
+<!--========================================================================-->
+
+<a name="description"></a>
+<h3>Description</h3>
+
+<p>Work Journal is a small application that is used to keep a journal of work 
+activity -- date, start time, end time, notes, etc. It is written in Java
+and has a Swing GUI.</p>
+
+<!--========================================================================-->
+
+<a name="installation"></a>
+<h3>Installation</h3>
+
+<ol>
+   <li><p>If you are installing over a previous version of Work Journal,
+   <b>make a backup of the <code>db</code> directory</b>.</p>
+
+   <li><p>Make a directory somewhere for the application (herein referred to as
+   <code>WORK_JOURNAL_HOME</code>).</p></li>
+
+   <li><p>Unzip the Work Journal distribution file (WorkJournal-&lt;version&gt;.zip)
+      into <code>WORK_JOURNAL_HOME</code>. You can use a GUI tool like WinZip, or 
+      you can use the jar utility that comes with the JDK. Here's an example of the 
+      latter:</p>
+
+      <p><blockquote>
+      cd <code>WORK_JOURNAL_HOME</code><br>
+      jar xvf <where you download the jar>/WorkJournal1.2.jar
+      </blockquote></p>
+   </li>
+
+   <li><p>If you made a backup of the <code>db</code> directory, copy its 
+   contents into the <code>db</code> directory in <code>WORK_JOURNAL_HOME</code>.</p>
+
+   <li><p>On Unix/Linux:</p>
+      <p>
+      <ol>
+        <li>Make <code>WORK_JOURNAL_HOME/WorkJournal</code> executable.
+        <li>If you are using a desktop such as KDE, create a shortcut and point
+            it at <code>WORK_JOURNAL_HOME/WorkJournal</code>.
+      </ol>
+      </p>
+   </li>
+
+   <li><p>On Windows, copy the WorkJournal shortcut 
+   (<code>WORK_JOURNAL_HOME/WorkJournal.lnk</code>) to your start menu.</p>
+</ol>
+
+<!--========================================================================-->
+
+<a name="running"></a>
+<h3>Running Work Journal</h3>
+
+<p>If you have created an icon/shortcut for Work Journal, just double-click 
+it. Otherwise, to run Work Journal from the command-line:</p>
+
+<blockquote>
+   cd <code>WORK_JOURNAL_HOME</code><br>
+   WorkJournal
+</blockquote>
+
+<p>If you want to run Work Journal directly:</p>
+
+<blockquote>
+<i>(Unix/Linux)</i><br>
+java -jar <code>WORK_JOURNAL_HOME</code>/lib/WorkJournal.jar
+</blockquote>
+
+<blockquote>
+<i>(Windows)</i><br>
+java -jar <code>WORK_JOURNAL_HOME</code>\lib\WorkJournal.jar<br>
+-or-<br>
+javaw -jar <code>WORK_JOURNAL_HOME</code>\lib\WorkJournal.jar
+</blockquote>
+
+<!--========================================================================-->
+
+<a name="mainwindow"></a>
+<h3>Work Journal Window</h3>
+
+<p>The Work Journal Window is the main window the Work Journal application.</p>
+
+<p><b>Menu:</b></p>
+
+<ul>
+   <li>File:
+   <ul>
+      <li>New Entry -- <i>Create a new journal entry.</i>
+      <li>Edit Entry --<i>Edit the selected journal entry.</i>
+      <li>Delete Entry -- <i>Delete the selected journal entry.</i>
+      <li>Exit -- <i>Exit the application.</i>
+   </ul>
+   
+   <li>Reports:
+   <ul>
+      <li>Time Report -- <i>Run the Time Report.</i>
+      <li>Journal Report -- <i>Run the Journal Report.</i>
+   </ul>
+
+   <li>Help:
+   <ul>
+      <li>About -- <i>View application identification.</i>
+   </ul>
+</ul>
+
+<p><b>Toolbar:</b></p>
+
+<ul>
+   <li><img src="../images/New.gif"> New Entry
+   <li><img src="../images/Edit.gif"> Edit Entry
+   <li><img src="../images/Delete.gif"> Delete Entry
+   <li><img src="../images/JournalReport.gif"> Journal Report
+   <li><img src="../images/TimeReport.gif"> Time Report
+   <li><img src="../images/About.gif"> About
+</ul>
+
+<!--========================================================================-->
+
+<a name="entrywindow"></a>
+<h3>Journal Entry Window</h3>
+
+<p>The Journal Entry window is used to add and edit journal entries</p>
+
+<p><b>Fields:</b></p>
+
+<ul>
+   <li>Work Date - The date on which you worked. The format is MM/DD/YYYY.
+   <li>Start Time - The time at which you started work. The format is HH:mm a.
+   <li>End Time - The time at which you ended work. The format is HH:mm a.
+   <li>Meal Time - The time you spent on meals, in hours and minutes. The format 
+       is HH:mm.
+   <li>Notes - Notes about the work.
+</ul>
+
+<p><b>Buttons:</b></p>
+
+<ul>
+   <li>Save - Save the journal entry and close the window.
+   <li>Cancel - Close the window without saving the journal entry.
+</ul>
+
+<p><b>Defaults:</b></p>
+
+<p>Defaults for the fields on the Journal Entry Window can be specified in
+the WorkJournal.properties file. Here is an example:</p>
+
+<pre>
+   entry.startTime=7:00 AM
+   entry.endTime=4:00 PM
+   entry.mealTime=1:00
+</pre>
+
+<!--========================================================================-->
+
+<a name="journalreport"></a>
+<h3>Journal Report</h3>
+
+<p>The Journal Report shows journal entries for a given date range.</p>
+
+<p><b>Fields:</b></p>
+
+<ul>
+   <li>Start - The start date for the report. The format is MM/DD/YYYY.
+   <li>End - The end date for the report. The format is MM/DD/YYYY.
+</ul>
+
+<p><b>Buttons:</b></p>
+
+<ul>
+   <li>Run - Run the report.
+</ul>
+
+<!--========================================================================-->
+
+<a name="timereport"></a>
+<h3>Time Report</h3>
+
+<p>The Time Report shows work time for a given date range, with totals for
+meals and hours.</p>
+
+<p><b>Fields:</b></p>
+
+<ul>
+   <li>Start - The start date for the report. The format is MM/DD/YYYY.
+   <li>End - The end date for the report. The format is MM/DD/YYYY.
+</ul>
+
+<p><b>Buttons:</b></p>
+
+<ul>
+   <li>Run - Run the report.
+</ul>
+
+<!--========================================================================-->
+
+<a name="files"></a>
+<h3>Files</h3>
+
+<pre>
+   build.xml              -- Build file (used with Ant).
+   window.properties      -- Window properties
+   WorkJournal            -- Shell script to start app. (uses java.exe)
+   WorkJournal.bat        -- Batch file to start app.
+   WorkJournal.jpr        -- JBuilder project file
+   WorkJournal.jpr.local  -- JBuilder project file
+   WorkJournal.lnk        -- Windows shortcut to app. (uses javaw.exe)
+   WorkJournal.properties -- App. properties
+   db/                    -- Database files
+   db/wjdb.backup         -- Database backup file
+   db/wjdb.data           -- Database data file
+   db/wjdb.properties     -- Database properties file
+   db/wjdb.script         -- Database statement log
+   docs/                  -- Documentation
+   docs/api/              -- Javadocs
+   docs/history.txt       -- Version history
+   docs/manual.txt        -- Manual
+   docs/readme.txt        -- Distribution information
+   lib/                   -- Library files
+   lib/hsqldb.jar         -- HSQLDB database library
+   lib/javacogs.jar       -- JavaCogs library
+   lib/workjournal.jar    -- Work Journal library
+   src/                   -- Source code
+</pre>
+
+<!--========================================================================-->
+
+<a name="database"></a>
+<h3>Database</h3>
+
+<p>The Work Journal database is an HSQLDB database. It contains the
+following tables.</p>
+
+<ul>
+<li><p>journal -- <i>Journal Entries</i>:
+<br><br>
+<table border="1" width="250">
+   <tr bgcolor="#dcdcdc">
+       <td><b>Column</b></td> <td><b>Datatype</b></td>
+   </tr>
+   <tr><td>ID</td>            <td>bigint</td></tr>
+   <tr><td>workdate</td>      <td>date</td></tr>
+   <tr><td>starttime</td>     <td>varchar</td></tr>
+   <tr><td>endtime</td>       <td>varchar</td></tr>
+   <tr><td>mealtime</td>      <td>varchar</td></tr>
+   <tr><td>notes</td>         <td>varchar</td></tr>
+</table>
+</p>
+
+<li><p>journal_seq -- <i>Journal Sequence Number</i>:
+<br><br>
+<table border="1" width="250">
+   <tr bgcolor="#dcdcdc">
+       <td><b>Column</b></td> <td><b>Datatype</b></td>
+   </tr>
+   <tr><td>seq</td>           <td>long</td></tr>
+</table>
+</p>
+
+</ul>

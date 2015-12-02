@@ -1,0 +1,87 @@
+<!-- Work Journal build file -->
+<project name="WorkJournal" basedir="." default="jar">
+   <!-- properties -->
+   <property name="version"      value="2.1"/>
+   <property name="src"          value="**"/>
+   <property name="srcDir"       value="src"/>
+   <property name="classesDir"   value="classes"/>
+   <property name="libDir"       value="lib"/>
+   <property name="docsDir"      value="docs"/>
+   <property name="javadocsDir"  value="${docsDir}/api"/>
+   <property name="jarFile"      value="${libDir}/workjournal.jar"/>
+   <property name="versionFile"  value="${srcDir}/org/workjournal/version.properties"/>
+   <property name="manifestFile" value="META-INF/MANIFEST.MF"/>
+   <property name="distFile"     value="${ant.project.name}-${version}.zip"/>
+
+   <!-- classpath -->
+   <path id="classpath">
+      <pathelement location="${classesDir}"/>
+      <pathelement location="lib/javacogs.jar"/>
+      <pathelement location="lib/hsql.jar"/>
+   </path>
+
+   <!--=====================================================================-->
+
+   <!-- init -->
+   <target name="init">
+      <mkdir dir="${classesDir}"/>
+      <mkdir dir="${javadocsDir}"/>
+   </target>
+
+   <!-- clean -->
+   <target name="clean">
+      <delete file="lib/workjournal.jar"/>
+      <delete dir="${classesDir}"/>
+      <delete dir="${javadocsDir}"/>
+      <delete dir="bak"/>
+   </target>
+
+   <!-- build -->
+   <target name="build" depends="clean,jar,javadoc,dist"/>
+
+   <!-- dist -->
+   <target name="dist" depends="jar">
+      <zip zipfile="${distFile}"
+         basedir="."
+         includes="**"
+         excludes="${distFile},bak/**,classes/**"/>
+   </target>
+
+   <!-- compile -->
+   <target name="compile">
+      <!-- Compile classes. -->
+      <javac srcdir="${srcDir}" destdir="${classesDir}" includes="${src}"
+         classpathref="classpath"/>
+
+      <!-- Copy properties files. -->
+      <filter token="VERSION" value="${version}"/>
+      <copy todir="${classesDir}" filtering="true">
+         <fileset dir="${srcDir}" includes="**/*.properties"/>
+      </copy>
+   </target>
+
+   <!-- jar -->
+   <target name="jar" depends="init,compile">
+      <jar jarfile="${jarFile}" manifest="${manifestFile}"
+         basedir="${classesDir}"/>
+   </target>
+
+   <!-- javadoc -->
+   <target name="javadoc" depends="init">
+      <delete>
+         <fileset dir="${javadocsDir}" includes="**"/>
+      </delete>
+      
+      <javadoc
+         classpathref="classpath"
+         sourcepath="${srcDir}"
+         destdir="${javadocsDir}"
+         packagenames="org.workjournal"
+         protected="true"
+         author="true"
+         use="true"
+         version="true"
+         windowtitle="Work Journal ${version}"
+         doctitle="Work Journal ${version}"/>
+   </target>
+</project>

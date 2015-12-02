@@ -1,0 +1,107 @@
+Work Journal History
+
+2.1 (9/5/2002):
+   * Fixed bug in sort: entries on same day were sorted in reverse order.
+   * Fixed hours calculation: 12:00 AM could not be used for midnight.
+   * Added time range checking to Journal Entry form.
+   * Left-justified table column headers.
+   * Split work date into day and date columns.
+   * Made cosmetic changes to reports.
+
+2.0 (11/5/2001):
+   * Total re-work.
+   * Renamed "Work Report" to "Time Report".
+   * Renamed "Status Report" to "Journal Report".
+
+1.10 (10/17/01):
+   * Added database connection properties to WorkJournal.properties.
+   * Added code to save window dimensions on exit.
+   * Moved saved window information to window.properties.
+   * Changed window handling to center journal entry window and report
+     windows on screen.
+   * Removed status messages.
+   * Added default entry properties to WorkJournal.properties.
+   * Cleaned up UI, code, and build file.
+   * Integrated JavaCogs 1.6.
+
+1.9a (9/17/01):
+   * Fixed single quote bug. Single quote (') in notes field would corrupt
+     database.
+
+1.9 (9/12/01):
+   * Integrated JavaCogs v1.5.
+   * Made cosmetic changes to Work Report and Status Report.
+   * Changed JournalEntryForm from dialog to frame, so that multiple instances
+     can be opened.
+   * Removed data formatting from JournalTable.
+   * Added background color for even rows to JournalTable.
+   * Added methods to JournalEntry to get formatted fields.
+   * Added properties file.
+   * Added code to save window position on exit.
+
+1.8 (6/18/01):
+   * Added day of week to date column in table in main window.
+   * Made journal entry form slightly larger.
+   * Changed "Start Time" header to "Start", "End Time" header to "End".
+   * Changed button label from "Run Report" to "Run" on reports.
+
+1.7 (6/11/01):
+   * Removed version number from title of main window.
+   * Added work dates, times, and totals to status report.
+
+1.6 (5/21/01):
+   * On work report, changed meals column to show time in HH:MM format and
+     decimal format.
+
+1.5 (5/15/01):
+   * Increased size of journal entry form.
+   * Increased size of work report form.
+   * Added line above meals total on work report.
+   * Added code to work report form to load journal before running report.
+   * Added status report form.
+   * Replaced build scripts with Ant build file (build.xml).
+   * Updated manual.
+   * Put readme file back.
+
+1.4 (2/20/01):
+   * Cosmetic changes to WorkJournal and JournalEntryForm -- made buttons
+     same height, aligned things, ...
+   * Corrected wrong Javadoc comments in JournalEntry.
+   * Fixed Journal so that it sorts after load.
+
+1.3 (1/3/01):
+   * Fixed JournalEntryComparator so that it uses yyyy/MM/dd for sorting
+     instead of JournalEntry.dateFormat (MM/dd/yyyy).
+   * Made minor formatting changes to manual.
+   * Removed README file. (So far, everything is in the manual.)
+   * Added makejars.bat.
+
+1.2 (10/19/00):
+   * Replaced data file with SQL database. (Used standalone version of
+     HypersonicSQL.)
+   * Removed command-line arguments. (No longer necessary since using database
+     instead of data files.)
+   * Changed JournalEntry so that calculated data is calculated when getX()
+     method is called.
+   * Added getXHours() methods to JournalEntry.
+   * Added DBImport utility to import 1.x data files.
+   * Renamed wj script to WorkJournal, wj.bat to WorkJournal.bat.
+   * Renamed classes directory to lib.
+   * Renamed changelog.txt to history.txt.
+   * Created README file and manual.
+
+1.1a (9/27/00):
+   * Changed JournalEntryForm to validate start time, end time, and meal time
+     only when they are not blank.
+   * In WorkJournal.addJournalEntry(), created blank JournalEntry instead of
+     populating it with 8 - 5, h meals.
+   * Fixed JournalEntry so that startTime, endTime, and mealTime can be set to
+     blank.
+   * Fixed column alignment problems in work report.
+
+1.1 (9/19/00):
+   * Added command-line arguments.
+   * Updated comments.
+
+1.0:
+   * Initial version.

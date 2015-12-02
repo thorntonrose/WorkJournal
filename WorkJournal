@@ -1,0 +1,4 @@
+#!/bin/sh
+# Start Work Journal.
+
+java -jar lib/workjournal.jar $*

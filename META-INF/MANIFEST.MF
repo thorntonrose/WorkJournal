@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Created-By: 1.2 (Sun Microsystems Inc.)
+Class-Path: hsqldb.jar javacogs.jar
+Main-Class: org.workjournal.WorkJournal
+
+Name: org/workjournal/WorkJournal.class
